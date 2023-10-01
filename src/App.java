@@ -17,7 +17,7 @@ public class App {
         while (opcao!=7) {
             System.out.println("---------MENU-------------");
             System.out.println("1- Abrir uma nova venda");
-            System.out.println("2- Inserir u item de venda");
+            System.out.println("2- Inserir um item de venda");
             System.out.println("3- Remover um item de venda (digite o n°)");
             System.out.println("4- Encerrar uma venda");
             System.out.println("5- Listar as últimas 5 vendas");
