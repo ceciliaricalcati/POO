@@ -3,7 +3,7 @@ public class Venda {
     private int numero;
     private ItemVenda[] itens;
     private int quantItens;
-    private static final double DESCONTO_PADRAO = 0.10; // 10% de desconto
+    private static double DESCONTO_PADRAO = 0.10; // 10% de desconto
     private static final double IMPOSTO = 0.25; // 25% de imposto
 
     public Venda(int numero, int tamanhoMaximoItens) {
