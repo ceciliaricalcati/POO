@@ -13,6 +13,40 @@ public class App {
         HistoricoVendas historico = new HistoricoVendas(10);
         Venda vendaAtual= null;
 
+        // Cria um catálogo de produtos
+        CatalogoProdutos catalogo = new CatalogoProdutos(10);
+        Produto produto1 = new Produto(1, "Produto 1", 100.0);
+        Produto produto2 = new Produto(2, "Produto 2", 50.0);
+        Produto produto3 = new Produto(3, "Produto 3", 25.0);
+        Produto produto4 = new Produto(4, "Produto 4", 150.0);
+        Produto produto5 = new Produto(5, "Produto 5", 5.0);
+
+        catalogo.cadastra(produto1);
+        catalogo.cadastra(produto2);
+        catalogo.cadastra(produto3);
+        catalogo.cadastra(produto4);
+        catalogo.cadastra(produto5);
+
+
+        // Cria um estoque
+        Estoque estoque = new Estoque(10);
+        estoque.repoeEstoque(1, 50);
+        estoque.repoeEstoque(2, 30);
+        estoque.repoeEstoque(3, 10);
+        estoque.repoeEstoque(4, 5);
+        estoque.repoeEstoque(5, 2);
+
+
+        // Cria uma venda
+        Venda venda1 = new Venda(1, 10);
+        venda1.insereItem(produto1, 3);
+        venda1.insereItem(produto2, 2);
+        venda1.fecha();
+
+        // Insere a venda no histórico de vendas
+        // HistoricoVendas historico = new HistoricoVendas(10);
+        historico.insere(venda1);
+
         int opcao = 0;
         while (opcao!=7) {
             System.out.println("---------MENU-------------");
@@ -102,40 +136,6 @@ public class App {
             }
         }       
         scanner.close();
-        
-        // Cria um catálogo de produtos
-        CatalogoProdutos catalogo = new CatalogoProdutos(10);
-        Produto produto1 = new Produto(1, "Produto 1", 100.0);
-        Produto produto2 = new Produto(2, "Produto 2", 50.0);
-        Produto produto3 = new Produto(3, "Produto 3", 25.0);
-        Produto produto4 = new Produto(4, "Produto 4", 150.0);
-        Produto produto5 = new Produto(5, "Produto 5", 5.0);
-        
-        catalogo.cadastra(produto1);
-        catalogo.cadastra(produto2);
-        catalogo.cadastra(produto3);
-        catalogo.cadastra(produto4);
-        catalogo.cadastra(produto5);
-        
-
-        // Cria um estoque
-        Estoque estoque = new Estoque(10);
-        estoque.repoeEstoque(1, 50);
-        estoque.repoeEstoque(2, 30);
-        estoque.repoeEstoque(3, 10);
-        estoque.repoeEstoque(4, 5);
-        estoque.repoeEstoque(5, 2);
-
-
-        // Cria uma venda
-        Venda venda1 = new Venda(1, 10);
-        venda1.insereItem(produto1, 3);
-        venda1.insereItem(produto2, 2);
-        venda1.fecha();
-
-        // Insere a venda no histórico de vendas
-       // HistoricoVendas historico = new HistoricoVendas(10);
-        historico.insere(venda1);
 
         // Testa a consulta de produtos no catálogo
         Produto produtoConsultado = catalogo.consulta(1);
