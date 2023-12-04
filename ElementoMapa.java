@@ -15,4 +15,10 @@ public interface ElementoMapa {
 
     // Retorna a mensagem de interação do elemento
     String interage();
+
+    // Posição do x
+    int getX();
+
+    // Posição do y
+    int getY();
 }

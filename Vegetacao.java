@@ -33,4 +33,16 @@ public class Vegetacao implements ElementoMapa {
     public String interage() {
         return null;
     }
+
+    @Override
+    public int getX() {
+        // TODO Auto-generated method stub (IMPLEMENTAR)
+        throw new UnsupportedOperationException("Unimplemented method 'getY'");
+    }
+
+    @Override
+    public int getY() {
+        // TODO Auto-generated method stub (IMPLEMENTAR)
+        throw new UnsupportedOperationException("Unimplemented method 'getY'");
+    }
 }

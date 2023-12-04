@@ -125,8 +125,54 @@ public class Mapa {
     }
 
     public String interage() {
-        //TODO: Implementar
-        return "Interage";
+        //TODO: Implementar: tentativa 1
+        int raioInteracao = 2;
+        List <ElementoMapa> elementosInteragiveis = new ArrayList <>();
+
+        for(int i= Math.max(0,y/TAMANHO_CELULA - raioInteracao); i< Math.min(mapa.size(), y / TAMANHO_CELULA + raioInteracao +1); i++) {
+        
+            for (int j = Math.max(0, x / TAMANHO_CELULA - raioInteracao); j < Math.min(mapa.get(i).length(), x / TAMANHO_CELULA + raioInteracao + 1); j++) {
+                // Obtém o elemento na célula
+                ElementoMapa elemento = getElemento(j, i);
+    
+                // Verifica se o elemento é interagível
+                if (elemento != null && elemento.podeInteragir()) {
+                    elementosInteragiveis.add(elemento);
+                }
+            }
+        }
+    
+        // Se houver elementos interagíveis, encontra o que tá mais perto
+        if (!elementosInteragiveis.isEmpty()) {
+            ElementoMapa elementoMaisProximo = encontrarElementoMaisProximo(elementosInteragiveis);
+            return elementoMaisProximo.interage();
+        } else {
+            // Diz que não tem elementos interagíveis no raio de interação
+            return "Nada para interagir.";
+        }
+    }
+    
+    //  Encontra o  elemento mais próximo
+    private ElementoMapa encontrarElementoMaisProximo(List<ElementoMapa> elementos) {
+        ElementoMapa elementoMaisProximo = elementos.get(0);
+        int distanciaMaisProxima = calcularDistancia(elementoMaisProximo.getX(), elementoMaisProximo.getY());
+    
+        for (int i = 1; i < elementos.size(); i++) {
+            ElementoMapa elementoAtual = elementos.get(i);
+            int distanciaAtual = calcularDistancia(elementoAtual.getX(), elementoAtual.getY());
+    
+            if (distanciaAtual < distanciaMaisProxima) {
+                elementoMaisProximo = elementoAtual;
+                distanciaMaisProxima = distanciaAtual;
+            }
+        }
+    
+        return elementoMaisProximo;
+    }
+    
+    // Método para calcular a distância entre o personagem e um ponto (x, y)
+    private int calcularDistancia(int pontoX, int pontoY) {
+        return Math.abs(x - pontoX) + Math.abs(y - pontoY);
     }
 
     public String ataca() {
