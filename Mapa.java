@@ -16,8 +16,9 @@ public class Mapa {
     private boolean[][] areaRevelada; // Rastreia quais partes do mapa foram reveladas
     private final Color brickColor = new Color(153, 76, 0); // Cor marrom para tijolos
     private final Color vegetationColor = new Color(34, 139, 34); // Cor verde para vegetação
-    private final Color pontoColor = new Color(0, 0, 255); // Cor azul para pontos
-    private final Color circuloColor = new Color(0, 0, 0); // Cor preta para circulos
+    private final Color interrogacaoColor = new Color(255, 0, 0); // Cor vermelha para pontos
+    private final Color circuloColor = new Color(255, 255, 0); // Cor amarela para circulos
+    //private ElementoMapas[][] elementoss;
 
 
     private final int RAIO_VISAO = 5; // Raio de visão do personagem
@@ -55,6 +56,17 @@ public class Mapa {
         Character id = mapa.get(y).charAt(x);
         return elementos.get(id);
     }
+
+
+    //public void  removerElemento(ElementoMapa elemento) {
+      //  int x =elemento.getX();
+       // int y = elemento.getY();
+
+        //if(x>= 0 && x< ElementoMapa.length && y>= 0 && y< elementos[0].length) {
+          //  elementos[x][y] = null;
+       // }
+   // }
+
 
     public boolean estaRevelado(int x, int y) {
         return areaRevelada[y][x];
@@ -148,7 +160,7 @@ public class Mapa {
             return elementoMaisProximo.interage();
         } else {
             // Diz que não tem elementos interagíveis no raio de interação
-            return "Nada para interagir.";
+            return "Não tem nada para interagir :(";
         }
     }
     
@@ -216,7 +228,7 @@ public class Mapa {
         // Vegetação
         elementos.put('V', new Vegetacao('♣', vegetationColor));
         // Pontos
-         elementos.put('B', new Ponto('᠁', pontoColor));
+         elementos.put('B', new Interrogacao('�', interrogacaoColor));
          // Circulo
          elementos.put('C', new Circulo('●', circuloColor));
         }

@@ -1,6 +1,8 @@
 import java.awt.Color;
 
 public interface ElementoMapa {
+    int length = 0;
+
     // Retorna o caractere que será usado para desenhar o elemento no mapa
     Character getSimbolo();
 

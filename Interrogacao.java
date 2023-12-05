@@ -1,10 +1,10 @@
 import java.awt.Color;
 
-public class Ponto implements ElementoMapa{
+public class Interrogacao implements ElementoMapa{
   private Color cor;
   private Character simbolo;
   
-  public Ponto(Character simbolo, Color cor){
+  public Interrogacao(Character simbolo, Color cor){
     this.simbolo = simbolo;
     this.cor = cor;
   }
